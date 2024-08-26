@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:paddingHorizontal="10dp"
+    android:paddingTop="20dp"
+    tools:context=".presentation.ChooseLevelFragment">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Выбирете уровень:"
+        android:layout_marginTop="50dp"
+        android:textSize="30sp"
+        android:textStyle="bold" />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:backgroundTint="@color/blue"
+        android:text="тестовый"
+        android:textSize="30sp" />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:backgroundTint="@color/green"
+        android:text="лёгкий"
+        android:textSize="30sp" />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:backgroundTint="@color/yellow"
+        android:text="средний"
+        android:textSize="30sp" />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:backgroundTint="@color/red"
+        android:text="тяжёлый"
+        android:textSize="30sp" />
+
+
+</LinearLayout>

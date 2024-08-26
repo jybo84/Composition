@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".presentation.WelcomeFragment">
+
+    <ImageView
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:layout_gravity="center_horizontal"
+        android:src="@drawable/brain" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginHorizontal="10dp"
+        android:text="Состав числа"
+        android:textSize="30sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginHorizontal="10dp"
+        android:text="Правила игры: \nперед Вами будет три фигуры, две снизу, одна сверху, в двух из них будут числа. Необходимо, чтобы сумма чисел из двух нижних фигур была равна числу в верхней фигуре, для этого нужно вставить недостающее число. \n\nПример: \nв верхнем круге число 7, в одном из нижних знак вопроса, а в другом число 4. Значит на месте вопросительного знака должно быть число 3, потому что 3 + 4 = 7"
+        android:textSize="20sp" />
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"/>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="10dp"
+        android:text="Поехали"
+        android:textSize="30sp" />
+
+</LinearLayout>
