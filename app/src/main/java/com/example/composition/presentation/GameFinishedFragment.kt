@@ -6,14 +6,20 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.example.composition.R
+import com.example.composition.databinding.FinishedGameFragmentBinding
 
 class GameFinishedFragment: Fragment() {
+
+    private lateinit var binding: FinishedGameFragmentBinding
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.finished_game_fragment, container, false)
+
+        binding = FinishedGameFragmentBinding.inflate(inflater, container, false)
+        return binding.root
+
     }
 }

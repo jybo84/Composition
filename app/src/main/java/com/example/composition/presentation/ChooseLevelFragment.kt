@@ -6,14 +6,20 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.example.composition.R
+import com.example.composition.databinding.FragmentChooseLevelBinding
 
 class ChooseLevelFragment: Fragment() {
+
+    private lateinit var binding: FragmentChooseLevelBinding
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.fragment_choose_level, container, false)
+
+        binding = FragmentChooseLevelBinding.inflate(inflater, container, false)
+        return binding.root
+
     }
 }
