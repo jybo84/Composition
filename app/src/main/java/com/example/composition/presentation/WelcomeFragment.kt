@@ -19,7 +19,6 @@ class WelcomeFragment : Fragment() {
     ): View {
         binding = FragmentWelcomeBinding.inflate(inflater, container, false)
         return binding.root
-
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -32,8 +31,11 @@ class WelcomeFragment : Fragment() {
     private fun launchChooseLevelFragment(){
         requireActivity().supportFragmentManager.beginTransaction()
             .replace(R.id.main_container, ChooseLevelFragment.newInstance())
-            .addToBackStack(null)
+            .addToBackStack(ChooseLevelFragment.NAME)
             .commit()
 
+    }
+    companion object{
+        const val NAME = "WelcomeFragment"
     }
 }
