@@ -39,6 +39,9 @@ class GameFinishedFragment : Fragment() {
                 retryGame()
             }
         })
+        binding.btnAgain.setOnClickListener {
+            retryGame()
+        }
     }
 
     companion object {
@@ -48,14 +51,18 @@ class GameFinishedFragment : Fragment() {
         fun newInstance(gameResult: GameResult): GameFinishedFragment {
             val gameFinishFragment = GameFinishedFragment()
             val bundle = Bundle()
-            bundle.putSerializable(KEY_GAME_RESULT, gameResult)
+            bundle.putParcelable(KEY_GAME_RESULT, gameResult)
             gameFinishFragment.arguments = bundle
             return gameFinishFragment
         }
     }
 
-    fun parsArgs() {
-        gameResult = requireArguments().getSerializable(KEY_GAME_RESULT) as GameResult
+    private fun parsArgs() {
+         requireArguments().getParcelable<GameResult>(KEY_GAME_RESULT).let {
+             if (it != null) {
+                 gameResult = it
+             }
+         }
     }
 
     private fun retryGame(){
