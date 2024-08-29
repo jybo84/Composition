@@ -1,26 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".presentation.GameFragment">
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        tools:text="00:00"
+        android:gravity="center_horizontal"
         android:textSize="30sp"
-        android:gravity="center_horizontal"     />
+        tools:text="00:00" />
 
     <TextView
         android:layout_width="150dp"
         android:layout_height="150dp"
         android:layout_gravity="center_horizontal"
-       android:gravity="center"
         android:layout_marginTop="80dp"
         android:background="@drawable/shape"
+        android:gravity="center"
         android:textSize="120sp"
         android:textStyle="bold"
         tools:text="8" />
@@ -28,17 +27,17 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal" >
+        android:orientation="horizontal">
 
         <TextView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            tools:text="5"
-            android:background="@color/yellow"
-            android:layout_weight="1"
             android:layout_marginStart="100dp"
+            android:layout_weight="1"
+            android:background="@color/yellow"
+            android:gravity="center_horizontal"
             android:textSize="60sp"
-            android:gravity="center_horizontal"     />
+            tools:text="5" />
 
         <TextView
             android:layout_width="0dp"
@@ -56,9 +55,9 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingHorizontal="20dp"
         android:layout_marginTop="20dp"
-        android:orientation="horizontal"  >
+        android:orientation="horizontal"
+        android:paddingHorizontal="20dp">
 
         <TextView
             android:layout_width="wrap_content"
@@ -70,35 +69,44 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
-            android:textSize="20sp"
-            android:text="%%%"/>
+            android:text="%%%"
+            android:textSize="20sp" />
 
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingHorizontal="20dp"
         android:layout_marginTop="20dp"
-        android:orientation="horizontal"  >
+        android:orientation="horizontal"
+        android:paddingHorizontal="20dp">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Минимальное количество:"/>
+            android:text="Минимальное количество:" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
-            android:text="%%%"/>
+            android:text="%%%" />
 
     </LinearLayout>
+
+    <ProgressBar
+        android:id="@+id/progress_bar"
+        style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:max="100"
+        android:secondaryProgressTint="@android:color/background_dark" />
 
     <Space
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="1"/>
+        android:layout_weight="1" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -110,10 +118,10 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
+            android:background="@color/blue"
             android:gravity="center"
             android:textSize="90sp"
             android:textStyle="bold"
-            android:background="@color/blue"
             tools:text="1" />
 
         <TextView
@@ -121,22 +129,22 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:textSize="90sp"
-            android:gravity="center"
-            android:textStyle="bold"
             android:background="@color/red"
-            tools:text="1"/>
+            android:gravity="center"
+            android:textSize="90sp"
+            android:textStyle="bold"
+            tools:text="1" />
 
         <TextView
             android:id="@+id/tv_option3"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:textSize="90sp"
-            android:gravity="center"
-            android:textStyle="bold"
             android:background="@color/green"
-            tools:text="1"/>
+            android:gravity="center"
+            android:textSize="90sp"
+            android:textStyle="bold"
+            tools:text="1" />
 
     </LinearLayout>
 
@@ -150,43 +158,35 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:textSize="90sp"
-            android:gravity="center"
             android:background="@color/orange"
+            android:gravity="center"
+            android:textSize="90sp"
             android:textStyle="bold"
-            tools:text="1"/>
+            tools:text="1" />
 
         <TextView
             android:id="@+id/tv_option5"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:textSize="90sp"
-            android:gravity="center"
             android:background="@color/grey"
+            android:gravity="center"
+            android:textSize="90sp"
             android:textStyle="bold"
-            tools:text="1"/>
+            tools:text="1" />
 
         <TextView
             android:id="@+id/tv_option6"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:textSize="90sp"
-            android:gravity="center"
-            android:textStyle="bold"
             android:background="@color/yellow"
-            tools:text="1"/>
+            android:gravity="center"
+            android:textSize="90sp"
+            android:textStyle="bold"
+            tools:text="1" />
 
     </LinearLayout>
-
-
-
-
-
-
-
-
 
 
 </LinearLayout>
