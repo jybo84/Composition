@@ -32,7 +32,7 @@ class GameViewModel(application: Application) : AndroidViewModel(application) {
     private var _time = MutableLiveData<String>()
     val time: LiveData<String> = _time
 
-    private var _question = MutableLiveData<Questions>()
+    private val _question = MutableLiveData<Questions>()
     val question: LiveData<Questions> = _question
 
     private val _percentOfRightAnswers = MutableLiveData<Int>()
