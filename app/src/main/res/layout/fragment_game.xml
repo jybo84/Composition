@@ -7,6 +7,7 @@
     tools:context=".presentation.GameFragment">
 
     <TextView
+        android:id="@+id/tv_timer"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center_horizontal"
@@ -15,6 +16,7 @@
         android:textSize="30sp" />
 
     <TextView
+        android:id="@+id/tv_sum"
         android:layout_width="150dp"
         android:layout_height="150dp"
         android:layout_gravity="center_horizontal"
@@ -31,6 +33,7 @@
         android:orientation="horizontal">
 
         <TextView
+            android:id="@+id/tv_visible_number"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="100dp"
@@ -61,6 +64,7 @@
         android:paddingHorizontal="20dp">
 
         <TextView
+            android:id="@+id/tv_percent_right_answer"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/progress_answers"
