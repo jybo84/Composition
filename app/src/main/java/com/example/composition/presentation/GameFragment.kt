@@ -23,7 +23,7 @@ class GameFragment : Fragment() {
     private lateinit var level: Level
     private lateinit var binding: FragmentGameBinding
     private val gameViewModel: GameViewModel by viewModels()
-    val optionsAll by lazy {
+    private val optionsAll by lazy {
         mutableListOf<TextView>().apply {
             add(binding.tvOption1)
             add(binding.tvOption2)
@@ -62,7 +62,6 @@ class GameFragment : Fragment() {
                 gameViewModel.chooseAnswer(el.text.toString().toInt())
             }
         }
-
     }
 
     private fun observeViewModel() {
@@ -100,6 +99,10 @@ class GameFragment : Fragment() {
         }
         gameViewModel.minPercent.observe(viewLifecycleOwner){
             binding.progressBar.secondaryProgress = it
+        }
+
+        gameViewModel.progressAnswers.observe(viewLifecycleOwner){
+            binding.tvPercentRightAnswer.text = it
         }
         gameViewModel.gameResult.observe(viewLifecycleOwner){
             launchFinish(it)

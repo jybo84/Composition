@@ -1,5 +1,6 @@
 package com.example.composition.presentation
 
+import android.graphics.drawable.Drawable
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -34,14 +35,17 @@ class GameFinishedFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        requireActivity().onBackPressedDispatcher.addCallback(viewLifecycleOwner, object : OnBackPressedCallback(true){
-            override fun handleOnBackPressed() {
-                retryGame()
-            }
-        })
+        requireActivity().onBackPressedDispatcher.addCallback(
+            viewLifecycleOwner,
+            object : OnBackPressedCallback(true) {
+                override fun handleOnBackPressed() {
+                    retryGame()
+                }
+            })
         binding.btnAgain.setOnClickListener {
             retryGame()
         }
+        result(gameResult)
     }
 
     companion object {
@@ -58,14 +62,40 @@ class GameFinishedFragment : Fragment() {
     }
 
     private fun parsArgs() {
-         requireArguments().getParcelable<GameResult>(KEY_GAME_RESULT).let {
-             if (it != null) {
-                 gameResult = it
-             }
-         }
+        requireArguments().getParcelable<GameResult>(KEY_GAME_RESULT).let {
+            if (it != null) {
+                gameResult = it
+            }
+        }
     }
 
-    private fun retryGame(){
-        requireActivity().supportFragmentManager.popBackStack(GameFragment.NANE, FragmentManager.POP_BACK_STACK_INCLUSIVE)
+    private fun retryGame() {
+        requireActivity().supportFragmentManager.popBackStack(
+            GameFragment.NANE,
+            FragmentManager.POP_BACK_STACK_INCLUSIVE
+        )
+    }
+
+    private fun result(gameResult: GameResult) {
+        binding.resultSmile.setImageResource(getSmile())
+        binding.minCountResult.text = gameResult.gameSettings.minCountOfRightAnswers.toString()
+        binding.score.text = gameResult.countOfRightAnswers.toString()
+        binding.resultPercent.text = getPercentOfRightAnswers(gameResult).toString()
+        binding.minPercent.text = gameResult.gameSettings.minPercentOfRightAnswers.toString()
+    }
+
+    private fun getSmile(): Int {
+        return if (gameResult.winner) {
+            R.drawable.happy
+        } else {
+            R.drawable.sad
+        }
+    }
+
+    private fun getPercentOfRightAnswers(gameResult: GameResult): Int {
+        return if (gameResult.countOfQuestion == 0) {
+            0
+        } else
+            ((gameResult.countOfRightAnswers / gameResult.countOfQuestion.toDouble())*100).toInt()
     }
 }

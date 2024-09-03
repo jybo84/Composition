@@ -81,15 +81,10 @@
         android:paddingHorizontal="20dp">
 
         <TextView
+            android:id="@+id/min_count_answers"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Минимальное количество:" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
-            android:text="%%%" />
+            android:text="@string/min_count_answers" />
 
     </LinearLayout>
 

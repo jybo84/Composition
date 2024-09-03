@@ -5,6 +5,7 @@
     android:orientation="vertical">
 
     <ImageView
+        android:id="@+id/result_smile"
         android:layout_width="300dp"
         android:layout_height="300dp"
         android:layout_gravity="center"
@@ -25,6 +26,7 @@
             android:textSize="20sp" />
 
         <TextView
+            android:id="@+id/min_count_result"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
@@ -49,6 +51,7 @@
             android:textSize="20sp" />
 
         <TextView
+            android:id="@+id/score"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
@@ -66,16 +69,23 @@
         android:orientation="horizontal">
 
         <TextView
-            android:layout_width="0dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="2"
-            android:text="Необходимый процент правильных ответов"
+            android:text="Необходимый процент \nправильных ответов"
             android:textSize="20sp" />
 
         <TextView
-            android:layout_width="0dp"
+            android:id="@+id/min_percent"
+            android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:layout_weight="1"
+            android:layout_marginStart="82dp"
+            android:gravity="center"
+            android:text="%"
+            android:textSize="20sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
             android:gravity="center"
             android:text="%"
             android:textSize="20sp" />
@@ -90,16 +100,23 @@
         android:orientation="horizontal">
 
         <TextView
-            android:layout_width="0dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="2"
-            android:text="Ваш процент правильных ответов"
+            android:text="Ваш процент правильных \nответов"
             android:textSize="20sp" />
 
         <TextView
-            android:layout_width="0dp"
+            android:id="@+id/result_percent"
+            android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:layout_weight="1"
+            android:layout_marginStart="55dp"
+            android:gravity="center"
+            android:text="%"
+            android:textSize="20sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
             android:gravity="center"
             android:text="%"
             android:textSize="20sp" />

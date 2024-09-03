@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">Composition</string>
     <string name="progress_answers"> Правильных ответов %s (минимум %s ) </string>
+    <string name="min_count_answers"> Минимальное количество: %s  </string>
 </resources>
