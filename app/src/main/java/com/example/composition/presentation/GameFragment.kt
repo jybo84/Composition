@@ -11,6 +11,8 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
+import androidx.navigation.fragment.findNavController
+import androidx.navigation.fragment.navArgs
 import com.example.composition.R
 import com.example.composition.databinding.FragmentGameBinding
 import com.example.composition.domain.entity.GameResult
@@ -20,7 +22,9 @@ import com.example.composition.domain.entity.Questions
 
 class GameFragment : Fragment() {
 
-    private lateinit var level: Level
+    private val args by navArgs<GameFragmentArgs>()
+
+
     private lateinit var binding: FragmentGameBinding
     private val gameViewModel: GameViewModel by viewModels()
     private val optionsAll by lazy {
@@ -32,11 +36,6 @@ class GameFragment : Fragment() {
             add(binding.tvOption5)
             add(binding.tvOption6)
         }
-    }
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        parsArgs()
     }
 
     override fun onCreateView(
@@ -51,7 +50,7 @@ class GameFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        gameViewModel.startGame(level)
+        gameViewModel.startGame(args.level)
         observeViewModel()
         setOnClickListenerToOptions()
     }
@@ -109,33 +108,7 @@ class GameFragment : Fragment() {
         }
     }
 
-
-    private fun parsArgs() {
-        requireArguments().getParcelable<Level>(KEY_LEVEL).let {
-            if (it != null) {
-                level = it
-            }
-        }
-    }
-
-    companion object {
-
-        const val KEY_LEVEL = "level"
-        const val NANE = "GameFragment"
-
-        fun newInstance(level: Level): GameFragment {
-            val gameFragment = GameFragment()
-            val bundle = Bundle()
-            bundle.putParcelable(KEY_LEVEL, level)
-            gameFragment.arguments = bundle
-            return gameFragment
-        }
-    }
-
     private fun launchFinish(gameResult: GameResult) {
-        requireActivity().supportFragmentManager.beginTransaction()
-            .replace(R.id.main_container, GameFinishedFragment.newInstance(gameResult))
-            .addToBackStack(null)
-            .commit()
+        findNavController().navigate(GameFragmentDirections.actionGameFragmentToGameFinishedFragment(gameResult))
     }
 }

@@ -8,19 +8,17 @@ import android.view.ViewGroup
 import androidx.activity.OnBackPressedCallback
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
+import androidx.navigation.fragment.findNavController
+import androidx.navigation.fragment.navArgs
 import com.example.composition.R
 import com.example.composition.databinding.FinishedGameFragmentBinding
 import com.example.composition.domain.entity.GameResult
 
 class GameFinishedFragment : Fragment() {
 
-    private lateinit var binding: FinishedGameFragmentBinding
-    private lateinit var gameResult: GameResult
+    private val args by navArgs<GameFinishedFragmentArgs>()
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        parsArgs()
-    }
+    private lateinit var binding: FinishedGameFragmentBinding
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -35,45 +33,16 @@ class GameFinishedFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        requireActivity().onBackPressedDispatcher.addCallback(
-            viewLifecycleOwner,
-            object : OnBackPressedCallback(true) {
-                override fun handleOnBackPressed() {
-                    retryGame()
-                }
-            })
+
         binding.btnAgain.setOnClickListener {
             retryGame()
         }
-        result(gameResult)
-    }
-
-    companion object {
-
-        const val KEY_GAME_RESULT = "game_result"
-
-        fun newInstance(gameResult: GameResult): GameFinishedFragment {
-            val gameFinishFragment = GameFinishedFragment()
-            val bundle = Bundle()
-            bundle.putParcelable(KEY_GAME_RESULT, gameResult)
-            gameFinishFragment.arguments = bundle
-            return gameFinishFragment
-        }
-    }
-
-    private fun parsArgs() {
-        requireArguments().getParcelable<GameResult>(KEY_GAME_RESULT).let {
-            if (it != null) {
-                gameResult = it
-            }
-        }
+        result(args.gameResult)
     }
 
     private fun retryGame() {
-        requireActivity().supportFragmentManager.popBackStack(
-            GameFragment.NANE,
-            FragmentManager.POP_BACK_STACK_INCLUSIVE
-        )
+        findNavController().popBackStack()
+
     }
 
     private fun result(gameResult: GameResult) {
@@ -85,7 +54,7 @@ class GameFinishedFragment : Fragment() {
     }
 
     private fun getSmile(): Int {
-        return if (gameResult.winner) {
+        return if (args.gameResult.winner) {
             R.drawable.happy
         } else {
             R.drawable.sad

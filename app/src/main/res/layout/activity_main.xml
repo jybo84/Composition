@@ -5,7 +5,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main_container"
     android:layout_width="match_parent"
-    android:name="com.example.composition.presentation.WelcomeFragment"
+    android:name="androidx.navigation.fragment.NavHostFragment"
+    app:navGraph = "@navigation/main_navigation"
+    app:defaultNavHost = "true"
     android:layout_height="match_parent"
     tools:context=".presentation.MainActivity">
 
