@@ -34,9 +34,9 @@ class GameFinishedFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        binding.btnAgain.setOnClickListener {
-            retryGame()
-        }
+//        binding.btnAgain.setOnClickListener {
+//            retryGame()
+//        }
         result(args.gameResult)
     }
 
