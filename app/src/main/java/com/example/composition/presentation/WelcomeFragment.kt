@@ -33,6 +33,5 @@ class WelcomeFragment : Fragment() {
 
     private fun launchChooseLevelFragment() {
         findNavController().navigate(WelcomeFragmentDirections.actionWelcomeFragmentToChooseLevelFragment())
-
     }
 }

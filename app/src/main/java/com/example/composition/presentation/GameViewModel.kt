@@ -31,10 +31,6 @@ class GameViewModel @Inject constructor(
     lateinit var settingsGame: GameSettings
     lateinit var levelGame: Level
 
-//    private val context = application
-
-//    private val repository = GameRepositoryImpl
-
     val generateQuestionUseCase = GenerateQuestionUseCase(gameRepository)
     val getGameSettingsUseCase = GetGameSettingsUseCase(gameRepository)
 

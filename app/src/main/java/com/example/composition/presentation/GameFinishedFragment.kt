@@ -30,21 +30,12 @@ class GameFinishedFragment : Fragment() {
 
         binding = FinishedGameFragmentBinding.inflate(inflater, container, false)
         return binding.root
-
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-//        binding.btnAgain.setOnClickListener {
-//            retryGame()
-//        }
         result(args.gameResult)
-    }
-
-    private fun retryGame() {
-        findNavController().popBackStack()
-
     }
 
     private fun result(gameResult: GameResult) {
@@ -67,6 +58,6 @@ class GameFinishedFragment : Fragment() {
         return if (gameResult.countOfQuestion == 0) {
             0
         } else
-            ((gameResult.countOfRightAnswers / gameResult.countOfQuestion.toDouble())*100).toInt()
+            ((gameResult.countOfRightAnswers / gameResult.countOfQuestion.toDouble()) * 100).toInt()
     }
 }
