@@ -1,6 +1,7 @@
 package com.example.composition.presentation
 
 import android.app.Application
+import android.content.Context
 import android.os.CountDownTimer
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
@@ -12,20 +13,30 @@ import com.example.composition.domain.entity.GameResult
 import com.example.composition.domain.entity.GameSettings
 import com.example.composition.domain.entity.Level
 import com.example.composition.domain.entity.Questions
+import com.example.composition.domain.repository.GameRepository
 import com.example.composition.domain.usecase.GenerateQuestionUseCase
 import com.example.composition.domain.usecase.GetGameSettingsUseCase
+import dagger.hilt.android.lifecycle.HiltViewModel
+import dagger.hilt.android.qualifiers.ApplicationContext
+import javax.inject.Inject
 
-class GameViewModel(application: Application) : AndroidViewModel(application) {
+@HiltViewModel
+class GameViewModel @Inject constructor(
+
+    private val gameRepository: GameRepository,
+    @ApplicationContext private val context: Context
+
+) : ViewModel() {
 
     lateinit var settingsGame: GameSettings
     lateinit var levelGame: Level
 
-    private val context = application
+//    private val context = application
 
-    private val repository = GameRepositoryImpl
+//    private val repository = GameRepositoryImpl
 
-    val generateQuestionUseCase = GenerateQuestionUseCase(repository)
-    val getGameSettingsUseCase = GetGameSettingsUseCase(repository)
+    val generateQuestionUseCase = GenerateQuestionUseCase(gameRepository)
+    val getGameSettingsUseCase = GetGameSettingsUseCase(gameRepository)
 
     private lateinit var timer: CountDownTimer
 

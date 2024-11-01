@@ -9,7 +9,9 @@ import androidx.navigation.fragment.findNavController
 import com.example.composition.R
 import com.example.composition.databinding.FragmentChooseLevelBinding
 import com.example.composition.domain.entity.Level
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class ChooseLevelFragment: Fragment() {
 
     private lateinit var binding: FragmentChooseLevelBinding

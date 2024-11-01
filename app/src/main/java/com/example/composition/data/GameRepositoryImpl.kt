@@ -6,12 +6,10 @@ import com.example.composition.domain.entity.Questions
 import com.example.composition.domain.repository.GameRepository
 import java.lang.Integer.max
 import java.lang.Math.min
+import javax.inject.Inject
 import kotlin.random.Random
 
-object GameRepositoryImpl : GameRepository {
-
-    private const val MIN_SUM_VALUE = 2
-    private const val MIN_ANSWER_VALUE = 1
+class GameRepositoryImpl @Inject constructor() : GameRepository {
 
     override fun generateQuestion(maxSumValue: Int, countOfOptions: Int): Questions {
         val sum = Random.nextInt(MIN_SUM_VALUE, maxSumValue + 1)
@@ -34,5 +32,9 @@ object GameRepositoryImpl : GameRepository {
             Level.NORMAL -> GameSettings(20, 20, 80, 40)
             Level.HARD -> GameSettings(30, 30, 90, 40)
         }
+    }
+    companion object{
+        private const val MIN_SUM_VALUE = 2
+        private const val MIN_ANSWER_VALUE = 1
     }
 }

@@ -13,7 +13,9 @@ import androidx.navigation.fragment.navArgs
 import com.example.composition.R
 import com.example.composition.databinding.FinishedGameFragmentBinding
 import com.example.composition.domain.entity.GameResult
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class GameFinishedFragment : Fragment() {
 
     private val args by navArgs<GameFinishedFragmentArgs>()

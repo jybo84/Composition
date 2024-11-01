@@ -19,7 +19,9 @@ import com.example.composition.domain.entity.GameResult
 import com.example.composition.domain.entity.GameSettings
 import com.example.composition.domain.entity.Level
 import com.example.composition.domain.entity.Questions
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class GameFragment : Fragment() {
 
     private val args by navArgs<GameFragmentArgs>()
