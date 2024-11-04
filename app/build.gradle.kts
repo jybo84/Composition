@@ -7,6 +7,8 @@ plugins {
     id("kotlin-kapt")
 
     id ("com.google.dagger.hilt.android")
+//Test
+    id("de.mannodermaus.android-junit5")
 }
 
 android {
@@ -67,5 +69,19 @@ dependencies {
     implementation("androidx.navigation:navigation-ui-ktx:2.7.7")
     implementation("com.google.dagger:hilt-android:2.51.1")
     kapt("com.google.dagger:hilt-android-compiler:2.51.1")
+
+    //Test - JUnit
+    // Aggregator dependency on JUnit api, engine, and params
+    testImplementation("org.junit.jupiter:junit-jupiter:5.9.1")
+    // (Optional) If you also have JUnit 4-based tests
+    testImplementation("junit:junit:4.13.2")
+    testRuntimeOnly("org.junit.vintage:junit-vintage-engine:5.9.1")
+
+    //Mockito
+    // required if you want to use Mockito for unit tests
+    testImplementation ("org.mockito:mockito-core:2.24.5")
+    // required if you want to use Mockito for Android tests
+    androidTestImplementation ("org.mockito:mockito-android:2.24.5")
+
 
 }
