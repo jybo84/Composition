@@ -83,5 +83,4 @@ dependencies {
     // required if you want to use Mockito for Android tests
     androidTestImplementation ("org.mockito:mockito-android:2.24.5")
 
-
 }
